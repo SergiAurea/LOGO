@@ -56,6 +56,11 @@ document.addEventListener("DOMContentLoaded", function () {
       "</div>";
   });
 });
+
+function cerrarDropdown() {
+      document.querySelector('.dropdown-content').style.display = 'none';
+    }
+
 var audioElement;
 
 function generarSilaba() {
