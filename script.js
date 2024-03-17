@@ -57,8 +57,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function cerrarDropdown() {
-      document.querySelector('.dropdown-content').style.display = 'none';
+ function toggleDropdown() {
+      var dropdownContent = document.querySelector('.dropdown-content');
+      if (dropdownContent.style.display === 'block') {
+        dropdownContent.style.display = 'none';
+      } else {
+        dropdownContent.style.display = 'block';
+      }
     }
 
 var audioElement;
