@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="script.js"></script>
+    <style>
+      body {
+        color: white;
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      button {
+        width: 100%; /* Abarca todo el ancho disponible */
+        padding: 10px;
+        font-size: 15px;
+      }
+
+      .botones {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      #mensaje,
+      #estadisticas {
+        margin-top: 10px;
+        color: white;
+      }
+      .navbar {
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      .navbar a {
+        float: left;
+        font-size: 16px;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      .dropdown {
+        float: left;
+        overflow: hidden;
+      }
+
+      .dropdown .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+      }
+
+      .navbar a:hover,
+      .dropdown:hover .dropbtn {
+        background-color: red;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="dropdown">
+        <button class="dropbtn">
+          Grupo de letras
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="#" id="jfs">JFS</a>
+          <a href="#" id="tpk">TPK</a>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="botones" id="botones">
+        <div class="button-row">
+          <button onclick="generaryreproducirSilaba()">Generar Sílaba</button>
+          <button onclick="reproducirSilaba()">Reproducir Sílaba</button>
+        </div>
+        <div>
+          <button onclick="verificarCombinacion('J', 'A')">JA</button>
+          <button onclick="verificarCombinacion('J', 'E')">JE</button>
+          <button onclick="verificarCombinacion('J', 'I')">JI</button>
+          <button onclick="verificarCombinacion('J', 'O')">JO</button>
+          <button onclick="verificarCombinacion('J', 'U')">JU</button>
+        </div>
+        <div>
+          <button onclick="verificarCombinacion('F', 'A')">FA</button>
+          <button onclick="verificarCombinacion('F', 'E')">FE</button>
+          <button onclick="verificarCombinacion('F', 'I')">FI</button>
+          <button onclick="verificarCombinacion('F', 'O')">FO</button>
+          <button onclick="verificarCombinacion('F', 'U')">FU</button>
+        </div>
+        <div>
+          <button onclick="verificarCombinacion('S', 'A')">SA</button>
+          <button onclick="verificarCombinacion('S', 'E')">SE</button>
+          <button onclick="verificarCombinacion('S', 'I')">SI</button>
+          <button onclick="verificarCombinacion('S', 'O')">SO</button>
+          <button onclick="verificarCombinacion('S', 'U')">SU</button>
+        </div>
+      </div>
+      <div id="mensaje"></div>
+      <div id="estadisticas">
+        <p>Aciertos: <span id="aciertos">0</span></p>
+        <p>Fallos: <span id="fallos">0</span></p>
+        <p>% de Aciertos: <span id="porcentajeAciertos">0</span></p>
+        <div id="listaAciertos"></div>
+        <div id="listaFallos"></div>
+      </div>
+    </div>
+  </body>
+</html>
