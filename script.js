@@ -55,17 +55,49 @@ document.addEventListener("DOMContentLoaded", function () {
       "<button onclick=\"verificarCombinacion('K', 'U')\">KU</button>" +
       "</div>";
   });
+  document.getElementById("gb").addEventListener("click", function () {
+    document.getElementById("botones").innerHTML =
+      '<div class="button-row">' +
+      '<button onclick="generaryreproducirSilaba3()">Generar Sílaba</button>' +
+      '<button onclick="reproducirSilaba()">Reproducir Sílaba</button>' +
+      "</div>" +
+      "<div>" +
+      "<button onclick=\"verificarCombinacion('G', 'A')\">GA</button>" +
+      "<button onclick=\"verificarCombinacion('G', 'E')\">GE</button>" +
+      "<button onclick=\"verificarCombinacion('G', 'I')\">GI</button>" +
+      "<button onclick=\"verificarCombinacion('G', 'O')\">GO</button>" +
+      "<button onclick=\"verificarCombinacion('G', 'U')\">GU</button>" +
+      "</div>" +
+      "<div>" +
+      "<button onclick=\"verificarCombinacion('B', 'A')\">BA</button>" +
+      "<button onclick=\"verificarCombinacion('B', 'E')\">BE</button>" +
+      "<button onclick=\"verificarCombinacion('B', 'I')\">BI</button>" +
+      "<button onclick=\"verificarCombinacion('B', 'O')\">BO</button>" +
+      "<button onclick=\"verificarCombinacion('B', 'U')\">BU</button>" +
+      "</div>";
+  });
+  document.getElementById("dn").addEventListener("click", function () {
+    document.getElementById("botones").innerHTML =
+      '<div class="button-row">' +
+      '<button onclick="generaryreproducirSilaba4()">Generar Sílaba</button>' +
+      '<button onclick="reproducirSilaba()">Reproducir Sílaba</button>' +
+      "</div>" +
+      "<div>" +
+      "<button onclick=\"verificarCombinacion('D', 'A')\">DA</button>" +
+      "<button onclick=\"verificarCombinacion('D', 'E')\">DE</button>" +
+      "<button onclick=\"verificarCombinacion('D', 'I')\">DI</button>" +
+      "<button onclick=\"verificarCombinacion('D', 'O')\">DO</button>" +
+      "<button onclick=\"verificarCombinacion('D', 'U')\">DU</button>" +
+      "</div>" +
+      "<div>" +
+      "<button onclick=\"verificarCombinacion('N', 'A')\">NA</button>" +
+      "<button onclick=\"verificarCombinacion('N', 'E')\">NE</button>" +
+      "<button onclick=\"verificarCombinacion('N', 'I')\">NI</button>" +
+      "<button onclick=\"verificarCombinacion('N', 'O')\">NO</button>" +
+      "<button onclick=\"verificarCombinacion('N', 'U')\">NU</button>" +
+      "</div>";
+  });
 });
-
- function toggleDropdown() {
-      var dropdownContent = document.querySelector('.dropdown-content');
-      if (dropdownContent.style.display === 'block') {
-        dropdownContent.style.display = 'none';
-      } else {
-        dropdownContent.style.display = 'block';
-      }
-    }
-
 var audioElement;
 
 function generarSilaba() {
@@ -96,6 +128,34 @@ function generarSilaba2() {
   return silaba;
 }
 
+function generarSilaba3() {
+  const consonantes = ["G", "B"];
+  const vocales = ["A", "E", "I", "O", "U"];
+  const voz = ["1"];
+
+  const silaba = `${
+    consonantes[Math.floor(Math.random() * consonantes.length)]
+  }${vocales[Math.floor(Math.random() * vocales.length)]}${
+    voz[Math.floor(Math.random() * voz.length)]
+  }`;
+
+  return silaba;
+}
+
+function generarSilaba4() {
+  const consonantes = ["D", "N"];
+  const vocales = ["A", "E", "I", "O", "U"];
+  const voz = ["1"];
+
+  const silaba = `${
+    consonantes[Math.floor(Math.random() * consonantes.length)]
+  }${vocales[Math.floor(Math.random() * vocales.length)]}${
+    voz[Math.floor(Math.random() * voz.length)]
+  }`;
+
+  return silaba;
+}
+
 function generaryreproducirSilaba() {
   document.getElementById("mensaje").textContent = "";
   silabaGenerada = generarSilaba();
@@ -113,6 +173,34 @@ function generaryreproducirSilaba() {
 function generaryreproducirSilaba2() {
   document.getElementById("mensaje").textContent = "";
   silabaGenerada = generarSilaba2();
+
+  if (!audioElement) {
+    audioElement = new Audio();
+  }
+
+  var mp3Source = `Audios/${silabaGenerada}.mp3`;
+  audioElement.src = mp3Source;
+
+  audioElement.play();
+}
+
+function generaryreproducirSilaba3() {
+  document.getElementById("mensaje").textContent = "";
+  silabaGenerada = generarSilaba3();
+
+  if (!audioElement) {
+    audioElement = new Audio();
+  }
+
+  var mp3Source = `Audios/${silabaGenerada}.mp3`;
+  audioElement.src = mp3Source;
+
+  audioElement.play();
+}
+
+function generaryreproducirSilaba4() {
+  document.getElementById("mensaje").textContent = "";
+  silabaGenerada = generarSilaba4();
 
   if (!audioElement) {
     audioElement = new Audio();
